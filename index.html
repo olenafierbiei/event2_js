@@ -31,6 +31,31 @@
       </tr>
     </tbody>
   </table>
+  <br><br><br>
+  <style>
+    #resizable {
+      width: 200px;
+      height: 100px;
+      border: 2px solid black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #handle {
+      width: 15px;
+      height: 15px;
+      background: gray;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      cursor: nwse-resize;
+    }
+  </style>
+
+  <div id="resizable">
+    Тягніть за куточок...
+    <div id="handle"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 

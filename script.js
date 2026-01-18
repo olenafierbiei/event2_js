@@ -23,3 +23,26 @@ table.onclick = function (e) {
   rows.sort(compare);
   tbody.append(...rows); // Переставляємо рядки в DOM
 };
+
+
+
+const box = document.getElementById('resizable');
+const handle = document.getElementById('handle');
+
+handle.onmousedown = function (e) {
+  e.preventDefault();
+
+  function onMouseMove(e) {
+    // Нова ширина = поточна координата миші - ліва межа блоку
+    box.style.width = e.pageX - box.getBoundingClientRect().left + 'px';
+    box.style.height = e.pageY - box.getBoundingClientRect().top + 'px';
+  }
+
+  function onMouseUp() {
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+};
